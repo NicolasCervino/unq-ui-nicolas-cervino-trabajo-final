@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Api from "../../service/api";
+import DifficultySelector from "../difficultySelector/DifficultySelector";
 
 const Home = () => {
     const [difficulties, setDifficulties] = useState(null);
@@ -10,12 +11,6 @@ const Home = () => {
         });
     }, []);
 
-    return (
-        <div>
-            {difficulties && difficulties.map((d) => <button key={d}>{d}</button>)}
-            <button>Play!</button>
-        </div>
-    );
+    return difficulties && <DifficultySelector difficulties={difficulties} />;
 };
-
 export default Home;

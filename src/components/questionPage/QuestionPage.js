@@ -1,7 +1,7 @@
 import { GameContext } from "../../context/GameContext";
 import { useState, useEffect, useContext } from "react";
 import QuestionOptions from "./questionOptions/QuestionOptions";
-import DifficultyBanner from "../difficultyBanner/DifficultyBanner";
+import CustomBanner from "../customBanner/CustomBanner";
 import "./question-page.css";
 
 const QuestionPage = () => {
@@ -20,17 +20,19 @@ const QuestionPage = () => {
 
     return (
         <div className="row justify-content-center question-page">
-            <DifficultyBanner difficulty={selectedDifficulty} />
+            <CustomBanner difficulty={selectedDifficulty} />
 
-            <div className="col-10 question-page--question">
+            <div className="col-10 col-lg-5 question-page--question">
                 <p className="">{currentQuestion.question}</p>
             </div>
 
             <QuestionOptions question={currentQuestion} setIndex={setIndex} setCurrentQuestion={setCurrentQuestion} />
 
-            <div className="col-10 mt-1 justify-self-end text-white">
-                <p>{index + 1 + "/" + questions.length}</p>
-            </div>
+            <CustomBanner
+                difficulty={selectedDifficulty}
+                extraClass={"current-question-banner"}
+                currentQuestion={index + 1 + "/" + questions.length}
+            />
         </div>
     );
 };

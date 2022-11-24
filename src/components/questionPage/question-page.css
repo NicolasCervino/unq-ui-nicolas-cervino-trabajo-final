@@ -3,17 +3,6 @@
     background-color: #41464b;
 }
 
-.question-page--difficulty-banner {
-    background-color: #ffd000;
-    color: #fff;
-    font-weight: bold;
-    font-size: 23px;
-    height: 8vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .question-page--question {
     border: 1px solid black;
     display: flex;

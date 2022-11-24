@@ -1,6 +1,7 @@
 import { GameContext } from "../../context/GameContext";
 import { useState, useEffect, useContext } from "react";
 import QuestionOptions from "./questionOptions/QuestionOptions";
+import DifficultyBanner from "../difficultyBanner/DifficultyBanner";
 import "./question-page.css";
 
 const QuestionPage = () => {
@@ -19,7 +20,7 @@ const QuestionPage = () => {
 
     return (
         <div className="row justify-content-center question-page">
-            <div className="col-12 question-page--difficulty-banner">{selectedDifficulty}</div>
+            <DifficultyBanner difficulty={selectedDifficulty} />
 
             <div className="col-10 question-page--question">
                 <p className="">{currentQuestion.question}</p>

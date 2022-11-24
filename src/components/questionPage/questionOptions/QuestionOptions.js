@@ -27,7 +27,7 @@ const QuestionOptions = ({ question, setIndex }) => {
     };
 
     return (
-        <div className="col-10 d-flex flex-column justify-content-center gap-3 my-3">
+        <div className="col-10 col-lg-6 d-flex flex-column justify-content-center gap-3 my-3">
             <OptionButton onClickAction={handleAnswer} option={question.option1} value={"option1"} buttonStatus={selectedAnswer} />
             <OptionButton onClickAction={handleAnswer} option={question.option2} value={"option2"} buttonStatus={selectedAnswer} />
             <OptionButton onClickAction={handleAnswer} option={question.option3} value={"option3"} buttonStatus={selectedAnswer} />

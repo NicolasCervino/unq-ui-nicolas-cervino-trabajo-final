@@ -19,13 +19,13 @@ const DifficultySelector = ({ difficulties }) => {
 
     return (
         <div className="difficulty-selector--container row">
-            <div className="col-10 d-flex flex-column justify-content-center gap-3 my-3">
+            <div className="col-10 col-lg-6 d-flex flex-column justify-content-center gap-3 my-3">
                 {difficulties.map((d) => (
                     <DifficultyButton key={d} difficulty={d} onClickAction={handleDifficultySelect} active={currentDifficulty === d} />
                 ))}
             </div>
-            <div className="col-10 d-flex flex-column">
-                <button className="btn btn-success m-3 mt-5" disabled={currentDifficulty === null} onClick={handlePlay}>
+            <div className="col-10 col-lg-6 d-flex flex-column">
+                <button className="btn btn-primary m-3 mt-5" disabled={currentDifficulty === null} onClick={handlePlay}>
                     Play!
                 </button>
             </div>

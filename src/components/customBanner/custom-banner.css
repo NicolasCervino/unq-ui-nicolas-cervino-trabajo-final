@@ -1,4 +1,4 @@
-.difficulty-banner {
+.custom-banner {
     color: #fff;
     font-weight: bold;
     font-size: 23px;
@@ -6,4 +6,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.current-question-banner {
+    align-self: end;
 }

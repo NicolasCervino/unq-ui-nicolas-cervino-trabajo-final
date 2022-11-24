@@ -1,7 +1,8 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { GameContext } from "../../context/GameContext";
 import Api from "../../service/api";
 import QuestionPage from "../questionPage/QuestionPage";
+import GameResults from "../gameResults/GameResults";
 
 const Game = () => {
     const { selectedDifficulty, setQuestions, questions, finished } = useContext(GameContext);
@@ -12,9 +13,9 @@ const Game = () => {
         });
     }, [selectedDifficulty]);
 
-    // if (finished) {
-    //     return <GameResults></GameResults>
-    // }
+    if (finished) {
+        return <GameResults></GameResults>;
+    }
 
     return questions && <QuestionPage></QuestionPage>;
 };

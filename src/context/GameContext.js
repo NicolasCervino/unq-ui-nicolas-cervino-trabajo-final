@@ -18,6 +18,7 @@ export const GameProvider = ({ children }) => {
                 answered,
                 setAnswered,
                 finished,
+                setFinished,
             }}
         >
             {children}

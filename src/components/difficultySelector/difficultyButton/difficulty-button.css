@@ -1,0 +1,16 @@
+.btn-easy {
+    background-color: var(--easy) !important;
+    color: #fff !important;
+}
+.btn-normal {
+    background-color: var(--normal) !important;
+    color: #fff !important;
+}
+.btn-hard {
+    background-color: var(--hard) !important;
+    color: #fff !important;
+}
+.btn-extreme {
+    background-color: var(--extreme) !important;
+    color: #fff !important;
+}

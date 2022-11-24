@@ -1,6 +1,8 @@
+import "./difficulty-button.css";
+
 const DifficultyButton = ({ difficulty, onClickAction, active }) => {
     return (
-        <button className={`btn m-3 ${active ? "btn-primary" : "btn-outline-secondary"}`} onClick={onClickAction} value={difficulty}>
+        <button className={`btn m-2 ${active ? `btn-${difficulty}` : "btn-light"} `} onClick={onClickAction} value={difficulty}>
             {difficulty}
         </button>
     );

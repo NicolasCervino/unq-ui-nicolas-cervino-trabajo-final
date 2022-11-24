@@ -1,6 +1,6 @@
 .game-results {
     height: 100vh;
-    background-color: #41464b;
+    background-color: var(--background);
 }
 
 .game-results--number {

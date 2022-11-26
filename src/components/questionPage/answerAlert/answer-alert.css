@@ -1,0 +1,22 @@
+.answer-alert {
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000bd;
+}
+
+.answer-alert--message {
+    /* font-size: 4rem; */
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.correct {
+    color: #008000;
+}
+
+.incorrect {
+    color: #ff0000;
+}

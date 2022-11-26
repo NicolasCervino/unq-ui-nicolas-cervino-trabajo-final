@@ -2,6 +2,7 @@ import Api from "../../../service/api";
 import { GameContext } from "../../../context/GameContext";
 import { useContext, useState, useEffect } from "react";
 import OptionButton from "./optionButton/OptionButton";
+import AnswerAlert from "../answerAlert/AnswerAlert";
 
 const QuestionOptions = ({ question, setIndex }) => {
     const { answered, setAnswered } = useContext(GameContext);
@@ -21,18 +22,21 @@ const QuestionOptions = ({ question, setIndex }) => {
                         setAnswered((prevState) => [...prevState, { question, status: response.data.answer }]);
                         setIndex((prevState) => prevState + 1);
                     }
-                }, 300);
+                }, 600);
             })
             .catch(() => console.log("La respuesta no es valida"));
     };
 
     return (
-        <div className="col-10 col-lg-6 d-flex flex-column justify-content-center gap-3 my-3">
-            <OptionButton onClickAction={handleAnswer} option={question.option1} value={"option1"} buttonStatus={selectedAnswer} />
-            <OptionButton onClickAction={handleAnswer} option={question.option2} value={"option2"} buttonStatus={selectedAnswer} />
-            <OptionButton onClickAction={handleAnswer} option={question.option3} value={"option3"} buttonStatus={selectedAnswer} />
-            <OptionButton onClickAction={handleAnswer} option={question.option4} value={"option4"} buttonStatus={selectedAnswer} />
-        </div>
+        <>
+            <div className="col-10 col-lg-6 d-flex flex-column justify-content-center gap-3 my-3">
+                <OptionButton onClickAction={handleAnswer} option={question.option1} value={"option1"} buttonStatus={selectedAnswer} />
+                <OptionButton onClickAction={handleAnswer} option={question.option2} value={"option2"} buttonStatus={selectedAnswer} />
+                <OptionButton onClickAction={handleAnswer} option={question.option3} value={"option3"} buttonStatus={selectedAnswer} />
+                <OptionButton onClickAction={handleAnswer} option={question.option4} value={"option4"} buttonStatus={selectedAnswer} />
+            </div>
+            <AnswerAlert answerStatus={selectedAnswer} />
+        </>
     );
 };
 

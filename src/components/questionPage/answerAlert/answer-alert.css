@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background-color: #000000bd;
+    z-index: 2;
 }
 
 .answer-alert--message {

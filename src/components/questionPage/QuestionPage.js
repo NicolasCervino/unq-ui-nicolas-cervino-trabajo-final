@@ -40,16 +40,16 @@ const QuestionPage = () => {
 
     return (
         <div className="row justify-content-center question-page">
-            <ProgressBar difficulty={selectedDifficulty} timePassed={timePassed} timeLeft={timeLeft} duration={duration} />
+            <CustomBanner bgColor={`var(--${selectedDifficulty})`} position={"align-self-start"}>
+                <ProgressBar difficulty={selectedDifficulty} timePassed={timePassed} timeLeft={timeLeft} duration={duration} />
+            </CustomBanner>
             <div className="col-10 col-lg-5 question-page--question">
                 <p className="">{currentQuestion.question}</p>
             </div>
             <QuestionOptions question={currentQuestion} setIndex={setIndex} setCurrentQuestion={setCurrentQuestion} timeLeft={timeLeft} />
-            <CustomBanner
-                difficulty={selectedDifficulty}
-                extraClass={"current-question-banner"}
-                currentQuestion={index + 1 + "/" + questions.length}
-            />
+            <CustomBanner bgColor={`var(--${selectedDifficulty})`} position={"align-self-end"}>
+                {index + 1 + "/" + questions.length}
+            </CustomBanner>
         </div>
     );
 };

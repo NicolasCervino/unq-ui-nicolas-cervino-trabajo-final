@@ -1,9 +1,9 @@
 import "./custom-banner.css";
 
-const CustomBanner = ({ difficulty, extraClass, currentQuestion }) => {
+const CustomBanner = ({ children, bgColor, position }) => {
     return (
-        <div className={`col-12 custom-banner ${currentQuestion ? extraClass : ""}`} style={{ backgroundColor: `var(--${difficulty})` }}>
-            {currentQuestion ? currentQuestion : difficulty.toUpperCase()}
+        <div className={`col-12 custom-banner ${position}`} style={{ backgroundColor: bgColor }}>
+            {children}
         </div>
     );
 };

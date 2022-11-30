@@ -6,8 +6,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.current-question-banner {
-    align-self: end;
+    position: relative;
 }

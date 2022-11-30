@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import OptionButton from "./optionButton/OptionButton";
 import AnswerAlert from "../answerAlert/AnswerAlert";
 
-const QuestionOptions = ({ question, setIndex }) => {
+const QuestionOptions = ({ question, setIndex, timeLeft }) => {
     const { answered, setAnswered } = useContext(GameContext);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
 
@@ -26,6 +26,18 @@ const QuestionOptions = ({ question, setIndex }) => {
             })
             .catch(() => console.log("La respuesta no es valida"));
     };
+
+    useEffect(() => {
+        if (timeLeft === 0) {
+            setSelectedAnswer({ answer: "", status: false });
+            setTimeout(() => {
+                if (answered.find((q) => q.question.id === question.id) === undefined) {
+                    setAnswered((prevState) => [...prevState, { question, status: false }]);
+                    setIndex((prevState) => prevState + 1);
+                }
+            }, 600);
+        }
+    }, [timeLeft]);
 
     return (
         <>

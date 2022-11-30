@@ -5,7 +5,7 @@ import OptionButton from "./optionButton/OptionButton";
 import AnswerAlert from "../answerAlert/AnswerAlert";
 
 const QuestionOptions = ({ question, setIndex, timeLeft }) => {
-    const { answered, setAnswered } = useContext(GameContext);
+    const { answered, addAnswer } = useContext(GameContext);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
 
     useEffect(() => {
@@ -18,10 +18,8 @@ const QuestionOptions = ({ question, setIndex, timeLeft }) => {
                 setSelectedAnswer({ answer: e.target.value, status: response.data.answer });
                 // Un delay para que de tiempo a ver el cambio de color del boton
                 setTimeout(() => {
-                    if (answered.find((q) => q.question.id === question.id) === undefined) {
-                        setAnswered((prevState) => [...prevState, { question, status: response.data.answer }]);
-                        setIndex((prevState) => prevState + 1);
-                    }
+                    addAnswer(question, { question, status: response.data.answer });
+                    setIndex((prevState) => prevState + 1);
                 }, 600);
             })
             .catch(() => console.log("La respuesta no es valida"));
@@ -31,10 +29,8 @@ const QuestionOptions = ({ question, setIndex, timeLeft }) => {
         if (timeLeft === 0) {
             setSelectedAnswer({ answer: "", status: false });
             setTimeout(() => {
-                if (answered.find((q) => q.question.id === question.id) === undefined) {
-                    setAnswered((prevState) => [...prevState, { question, status: false }]);
-                    setIndex((prevState) => prevState + 1);
-                }
+                addAnswer(question, { question, status: false });
+                setIndex((prevState) => prevState + 1);
             }, 600);
         }
     }, [timeLeft]);

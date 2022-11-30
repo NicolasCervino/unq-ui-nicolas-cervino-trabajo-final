@@ -8,6 +8,12 @@ export const GameProvider = ({ children }) => {
     const [finished, setFinished] = useState(false);
     const [answered, setAnswered] = useState([]);
 
+    const addAnswer = (question, answer) => {
+        if (answered.find((q) => q.question.id === question.id) === undefined) {
+            setAnswered((prevState) => [...prevState, answer]);
+        }
+    };
+
     return (
         <GameContext.Provider
             value={{
@@ -17,6 +23,7 @@ export const GameProvider = ({ children }) => {
                 setQuestions,
                 answered,
                 setAnswered,
+                addAnswer,
                 finished,
                 setFinished,
             }}

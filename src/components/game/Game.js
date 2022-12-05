@@ -5,12 +5,18 @@ import QuestionPage from "../questionPage/QuestionPage";
 import GameResults from "../gameResults/GameResults";
 
 const Game = () => {
-    const { selectedDifficulty, setQuestions, questions, finished } = useContext(GameContext);
+    const { selectedDifficulty, setQuestions, questions, finished, setSelectedDifficulty } = useContext(GameContext);
 
     useEffect(() => {
-        Api.getQuestions(selectedDifficulty).then((response) => {
-            setQuestions(response.data);
-        });
+        selectedDifficulty
+            ? Api.getQuestions(selectedDifficulty).then((response) => {
+                  setQuestions(response.data);
+              })
+            : Api.getQuestions().then((response) => {
+                  setQuestions(response.data);
+                  setSelectedDifficulty("easy");
+                  // SI ENTRO AL JUEGO SIN SELECCIONAR DIFICULTAD POR DEFECTO ES EASY
+              });
     }, [selectedDifficulty]);
 
     if (finished) {

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GameContext } from "../../context/GameContext";
+import { Link } from "react-router-dom";
 import "./game-results.css";
 
 const GameResults = () => {
@@ -21,9 +22,9 @@ const GameResults = () => {
                 <p>Correct Answers:</p>
             </div>
             <div className="col-10">
-                <button className="btn btn-success" onClick={handlePlayAgain}>
-                    Play again:{" "}
-                </button>
+                <Link to={"/"} className="btn btn-success" onClick={handlePlayAgain}>
+                    Play again:
+                </Link>
             </div>
         </div>
     );

@@ -17,7 +17,7 @@ const Game = () => {
                   setSelectedDifficulty("easy");
                   // SI ENTRO AL JUEGO SIN SELECCIONAR DIFICULTAD POR DEFECTO ES EASY
               });
-    }, [selectedDifficulty]);
+    }, []);
 
     if (finished) {
         return <GameResults></GameResults>;

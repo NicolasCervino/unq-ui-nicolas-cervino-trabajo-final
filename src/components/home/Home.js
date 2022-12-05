@@ -1,12 +1,11 @@
-import { useState, useEffect, useContext } from "react";
-import { GameContext } from "../../context/GameContext";
+import { useState, useEffect } from "react";
 import Api from "../../service/api";
 import DifficultySelector from "../difficultySelector/DifficultySelector";
-import Game from "../game/Game";
+import CustomBanner from "../customBanner/CustomBanner";
+import "./home.css";
 
 const Home = () => {
     const [difficulties, setDifficulties] = useState(null);
-    const { selectedDifficulty } = useContext(GameContext);
 
     useEffect(() => {
         Api.getDifficulties().then((response) => {
@@ -14,10 +13,13 @@ const Home = () => {
         });
     }, []);
 
-    if (selectedDifficulty) {
-        return <Game></Game>;
-    }
-
-    return difficulties && <DifficultySelector difficulties={difficulties} />;
+    return (
+        <div className="row home">
+            <CustomBanner bgColor={"#4d4daa"} position={"align-self-start"}>
+                <h1>Preguntados</h1>
+            </CustomBanner>
+            {difficulties && <DifficultySelector difficulties={difficulties} />}
+        </div>
+    );
 };
 export default Home;

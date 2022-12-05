@@ -1,6 +1,6 @@
 # Preguntados
 
-El proyecto consiste en un juego de preguntas y respuestas, al comenzar se debe elegir una categoria y contestar 10 preguntas. Hay un limite de 25 segundos para contestar cada pregunta. En caso de acceder al juego sin seleccionar dificultad se escogera Easy por defecto.
+El proyecto consiste en un juego de preguntas y respuestas, al comenzar se debe elegir una dificultad y contestar 10 preguntas. Hay un limite de 25 segundos para contestar cada pregunta. En caso de acceder al juego sin seleccionar dificultad se escogera Easy por defecto.
 
 ## Como descargar el proyecto
 

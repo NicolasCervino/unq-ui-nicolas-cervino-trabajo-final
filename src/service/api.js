@@ -7,11 +7,14 @@ const getDifficulties = () => {
 };
 
 const getQuestions = (difficulty) => {
-    return axios.get(host + "/questions", {
-        params: {
-            difficulty: difficulty,
-        },
-    });
+    return axios.get(
+        host + "/questions",
+        difficulty && {
+            params: {
+                difficulty: difficulty,
+            },
+        }
+    );
 };
 
 const postAnswer = (id, answer) => {
